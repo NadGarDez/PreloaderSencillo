@@ -1,0 +1,92 @@
+<!DOOCTIPE html>
+<html lang ="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="STYLESHEET" type="text/css" href="">
+		<title></title>
+	</head>
+	<body>
+		<style>
+		
+				.contenedor {
+					margin-top:5%;
+					width:400px;
+					height:400px;
+
+				}
+
+			  .circulo-fijo{
+				   background-color:blue;
+				   width:300px;
+				   height:300px;
+				   border-radius:50%;
+				   position:absolute;
+				   text-align:center;
+				   z-index:1;
+			   
+			  }
+			  
+			  .circulo-movil{
+				   position:absolute;
+				   background-color:blue;
+				   width:300px;
+				   height:300px;
+				   
+				   border-radius:50%;
+				   border-left: red 5px solid;
+				   border-top: red 5px solid;
+				   border-right: purple 5px solid;
+				   border-bottom: purple 5px solid;
+			  }
+			  
+			  
+			  
+			  .tit{
+				   margin-top:45%;
+				   color:white;
+			  }
+			  
+		</style>
+ 
+ 
+	<br />
+	<center>
+	<div class="contenedor" id="contenedor-preloader">
+	<div class="circulo-fijo" id="circulo-fijo">
+	<h2 class="tit">
+	Cargando</h2>
+	</div>
+	<div class="circulo-movil" id="circulo-movil">
+	</div>
+	</div>
+	</center>
+	
+	<script>
+		var elemento=document.getElementById("contenedor-preloader");
+		var y=elemento.offsetTop;
+		var x=elemento.offsetLeft;
+				
+		var divFijo=document.getElementById("circulo-movil");
+					   
+		divFijo.style.top=y+"px";
+		divFijo.style.left=x+"px";
+						
+		var divMovil=document.getElementById("circulo-fijo");
+		divMovil.style.top=y+5+"px";
+		divMovil.style.left=x+5+"px";
+					  
+		var angulo=0;
+		setInterval(hola,50);
+		  
+		function hola(){
+			angulo+=10;
+			if(angulo==360){
+				angulo=0;
+			}
+			var a= document.getElementById("circulo-movil");  
+			a.style.transform="rotate("+angulo+"deg)";
+		}
+	 </script>
+	
+	</body>
+<html>
